@@ -2,5 +2,5 @@
 
 Blazing Through Coding Interview Problems
 
-#Ch. 1 
+## Ch. 1 
 
