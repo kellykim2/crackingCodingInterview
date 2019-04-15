@@ -13,6 +13,7 @@
 #include <string>
 #include <cstdio>
 #include <unordered_map>
+#include <iostream>
 
 class ArraysAndStrings{
 private:

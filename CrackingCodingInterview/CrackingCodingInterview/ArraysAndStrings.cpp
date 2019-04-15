@@ -47,6 +47,7 @@ bool ArraysAndStrings::IsUnique(std::string s){
 //criteria #1 check length of two strings
 //criteria #2 put components of one string into hash table using char as key,
 //and account each index to be equal at the end
+//the solution has BigO(n)
 
 bool ArraysAndStrings::IsPermutation(std::string s1, std::string s2){
     if(s1.size() != s2.size()){
@@ -56,8 +57,10 @@ bool ArraysAndStrings::IsPermutation(std::string s1, std::string s2){
         std::unordered_map<char, int> hm;
         for(char c : s1){
             auto search = hm.find(c);
-            if(search == hm.end())
-                hm.insert({c, 0});
+            if(search == hm.end()){
+                //printf("\nInserting %c", c);
+                hm.insert({c, 1});
+            }
             else{
                 hm[c]++;
             }
@@ -73,6 +76,7 @@ bool ArraysAndStrings::IsPermutation(std::string s1, std::string s2){
         }
         //now iterate through hashmap to check non zero value
         for(const auto& node : hm){
+            //std::cout<<"Key: " << node.first << " Value: " << node.second << std::endl;
             if(node.second != 0)
                 return false;
         }
