@@ -25,7 +25,6 @@ int main(int argc, const char * argv[]) {
 
 void menu(void){
     puts("menu");
-    puts("ch1.1 - IsUnique");
 }
 
 void chapterOne(void){
@@ -35,6 +34,8 @@ void chapterOne(void){
     string notUnique = "nnn";
     string emptyString = "";
     
+    //1-1
+    puts("ch1.1 - IsUnique");
     if(testOne.IsUnique(unique))
         puts("Test 1 unique passed");
     else
@@ -47,4 +48,21 @@ void chapterOne(void){
         puts("Test 1 empty string case passed");
     else
         puts("Test 1 empty string case not passed");
+    
+    //1-2
+    puts("ch1.2 - Is Permutation");
+    if(testOne.IsPermutation(unique, unique))
+        puts("Test 1-2 permutation test passed");
+    else
+        puts("Test 1-2 permutation test failed");
+    if(!testOne.IsPermutation("", " "))
+        puts("Test 1-2 permutation test passed");
+    else
+        puts("Test 1-2 permutation test failed");
+    if(!testOne.IsPermutation(notUnique, unique))
+        puts("Test 1-2 permutation test passed");
+    else
+        puts("Test 1-2 permutation test failed");
+
+
 }

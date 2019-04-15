@@ -12,12 +12,14 @@
 #include <stdio.h>
 #include <string>
 #include <cstdio>
+#include <unordered_map>
 
 class ArraysAndStrings{
 private:
     
 public:
     bool IsUnique(std::string); //ch1-1
+    bool IsPermutation(std::string, std::string); //ch1-2
     
     
 };
