@@ -1,0 +1,16 @@
+
+Ch01/
+
+CrackingCodingInterview/\.DS_Store
+
+*.pbxproj
+
+*.xcworkspacedata
+
+*.plist
+
+*.xcuserstate
+
+etc/\.DS_Store
+
+\.DS_Store
