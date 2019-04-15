@@ -104,3 +104,46 @@ std::string ArraysAndStrings::URLify(std::string s, int size){
     }
     return result;
 }
+
+//ch1-4
+/*
+ * Palindrome Permutation
+ * Given a string, write a function to check if it is a permutation of a parlindrome
+ * A parlindrome is a word or phrase that is same forwards and backwards. a permutation is a rearrangement of letters.
+ * The palindrome does not need to be limited to just dictionary words.
+ *
+ * Approach #1 brute force
+ * create all permutation of given string
+ * check for palindrome
+ *
+ * approach #2 semi brute force
+ * check if there is matching char count for a palindrome,
+ * there must be a even number of chars and maybe 1 unique center char
+ * then it is guaranteed for such permutation to exist since no need to check for dictionary words
+ */
+
+bool ArraysAndStrings::palperm(std::string s){
+    std::unordered_map<char, int> count;
+    //process the given string
+    transform(s.begin(), s.end(), s.begin(), ::toupper);
+    for(char c : s){
+        if(c == ' ')
+            continue;
+        if(count.find(c) == count.end()){
+            count.insert({c,1});
+        }else{
+            count[c]++;
+        }
+    }
+    //once done processing the given string, check for even numbers of chars and a single possible 1 count. space should not be accounted
+    int flag = 0;
+    for(const auto& node : count){
+        if(node.second % 2 != 0)
+            flag++;
+    }
+    if (flag > 1)
+        return false;
+    else
+        return true;
+ 
+}

@@ -36,6 +36,8 @@ void chapterOne(void){
     string urltest1 = " Mr John Smith";
     string urltest2 = "       John Blah";
     string urltest3 = "Come With me Now ";
+    //string pal = "Eva Can I Stab Bats In A Cave";
+    string pal = "Deinfintely not a palindrome";
     
     //1-1
     puts("ch1.1 - IsUnique");
@@ -75,6 +77,11 @@ void chapterOne(void){
     "Test 1-3 result : " << testOne.URLify(urltest2, (int)urltest2.length()) << endl;
     cout << "Test 1-3 :" << urltest3 << endl <<
     "Test 1-3 result : " << testOne.URLify(urltest3, (int)urltest3.length()) << endl;
+    
+    //1.4 Palindrome Permutation
+    puts("ch1.4 - Palindrome Permutation");
+    cout << "Test 1-4 " << pal << endl <<
+    "Test 1-4 result : " << (testOne.palperm(pal) ? "Success" : "Failed") << endl;
     
 
 }
