@@ -10,5 +10,17 @@
 #define ArraysAndStrings_hpp
 
 #include <stdio.h>
+#include <string>
+#include <cstdio>
+
+class ArraysAndStrings{
+private:
+    
+public:
+    bool IsUnique(std::string); //ch1-1
+    
+    
+};
+
 
 #endif /* ArraysAndStrings_hpp */
