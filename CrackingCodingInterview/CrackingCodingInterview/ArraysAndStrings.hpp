@@ -21,6 +21,7 @@ private:
 public:
     bool IsUnique(std::string); //ch1-1
     bool IsPermutation(std::string, std::string); //ch1-2
+    std::string URLify(std::string, int);
     
     
 };

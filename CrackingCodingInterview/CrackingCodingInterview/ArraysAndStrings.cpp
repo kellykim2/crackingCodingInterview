@@ -84,3 +84,23 @@ bool ArraysAndStrings::IsPermutation(std::string s1, std::string s2){
         return true;
     }
 }
+
+//1.3
+//URLify write a method to replace all spaces in a string with "%20"
+//you may assume that the string has sufficient space at the end to hold the additional characters, and that
+//you are given the "true" length of the string.
+std::string ArraysAndStrings::URLify(std::string s, int size){
+    //take care of empty string
+    std::string result = "";
+    if(size == 0)
+        return result;
+    else{
+        for(int i = 0; i < size; i++){
+            if(s.at(i) == ' ')
+                result += "%20";
+            else
+                result += s.at(i);
+        }
+    }
+    return result;
+}

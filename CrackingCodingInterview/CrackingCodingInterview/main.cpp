@@ -33,6 +33,9 @@ void chapterOne(void){
     string unique = "Unique";
     string notUnique = "nnn";
     string emptyString = "";
+    string urltest1 = " Mr John Smith";
+    string urltest2 = "       John Blah";
+    string urltest3 = "Come With me Now ";
     
     //1-1
     puts("ch1.1 - IsUnique");
@@ -63,6 +66,15 @@ void chapterOne(void){
         puts("Test 1-2 permutation test passed");
     else
         puts("Test 1-2 permutation test failed");
-
+    
+    //1.3 URLify
+    puts("ch1.3 - URLify");
+    cout << "Test 1-3 :" << urltest1 << endl <<
+    "Test 1-3 result : " << testOne.URLify(urltest1, (int)urltest1.length()) << endl;
+    cout << "Test 1-3 :" << urltest2 << endl <<
+    "Test 1-3 result : " << testOne.URLify(urltest2, (int)urltest2.length()) << endl;
+    cout << "Test 1-3 :" << urltest3 << endl <<
+    "Test 1-3 result : " << testOne.URLify(urltest3, (int)urltest3.length()) << endl;
+    
 
 }
