@@ -38,6 +38,11 @@ void chapterOne(void){
     string urltest3 = "Come With me Now ";
     //string pal = "Eva Can I Stab Bats In A Cave";
     string pal = "Deinfintely not a palindrome";
+    string oneCorr = "banana";
+    string oneOff1 = "bananana";
+    string oneOff2 = "bananna";
+    string oneOff3 = "banan";
+    string oneOff4 = "bacana";
     
     //1-1
     puts("ch1.1 - IsUnique");
@@ -83,5 +88,12 @@ void chapterOne(void){
     cout << "Test 1-4 " << pal << endl <<
     "Test 1-4 result : " << (testOne.palperm(pal) ? "Success" : "Failed") << endl;
     
+    //1.5 One Away
+    puts("ch1.5 - One Away");
+    cout << "Test 1-5 : " << "banana vs bananana (Expected to fail)" << (testOne.OneAway(oneCorr, oneOff1) ? "pass" : "fail") << endl;
+    cout << "Test 1-5 : " << "banana vs banan (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff2) ? "pass" : "fail") << endl;
+    cout << "Test 1-5 : " << "banana vs bananaa (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff3) ? "pass" : "fail") << endl;
+    cout << "Test 1-5 : " << "banana vs bacana (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff4) ? "pass" : "fail") << endl;
+
 
 }

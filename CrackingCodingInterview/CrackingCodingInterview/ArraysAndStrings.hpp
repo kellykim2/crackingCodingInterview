@@ -23,7 +23,7 @@ public:
     bool IsPermutation(std::string, std::string); //ch1-2
     std::string URLify(std::string, int); //ch1-3
     bool palperm(std::string); //ch 1-4
-    
+    bool OneAway(std::string, std::string);//ch1-5
     
     
 };

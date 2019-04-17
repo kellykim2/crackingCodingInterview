@@ -147,3 +147,61 @@ bool ArraysAndStrings::palperm(std::string s){
         return true;
  
 }
+
+//ch 1-5
+/*
+ * One Away: There are three types of edits that can be performed on string;
+ * insert a character, remove a character, or replace a character.
+ * Given two strings, write a function to check if they are one (or zero) edit away.
+ *
+ * approach #1
+ * First, Check character count and return false if more than one char difference.
+ * Second, if equal # of char compare two string  one index at a time and flag up difference.
+ * Third, if 1 difference in char count, at first unequal char, continue with 1 off indeces to compare rest.
+ * Assumption #1 that s1 is the correct string
+ */
+
+bool ArraysAndStrings::OneAway(std::string s1, std::string s2){
+    //test 1 size
+    int size1 = s1.size();
+    int size2 = s2.size();
+    int difference = size1 - size2;
+    int flag = 0;
+    //test example
+    /*
+     banana vs bananna (one more
+     banana vs baana   (one less
+     banana vs baaana (same number but wrong char)
+     */
+    
+    switch(difference){
+        case 0://same number chars
+            //check for char differences
+            for(int i = 0; i < size1; i++){
+                if(s1.at(i) != s2.at(i)){
+                    flag++;
+                }
+            }
+            break;
+        case 1: //one less
+            for(int i = 0; i < size1; i++){
+                if(i+flag < size2 && s1.at(i+flag) != s2.at(i)){
+                    flag++;
+                }
+            }
+            break;
+        case -1: //one more
+            for(int i = 0; i < size1; i++){
+                if(i+flag < size1 && s1.at(i) != s2.at(i+flag)){
+                    flag++;
+                }
+            }
+            break;
+        default: //out of bound (more differences)
+            return false;
+    }
+    if(flag > 1)
+        return false;
+    return true;
+}
+
