@@ -8,6 +8,8 @@
 
 #include <cstdio>
 #include "ArraysAndStrings.hpp"
+#define ARRAY_SIZE 5 //1-7
+
 
 using namespace std;
 
@@ -16,9 +18,8 @@ void chapterOne(int);
 
 int main(int argc, const char * argv[]) {
     
-    puts("Cracking Coding Interview\nSolutions by Kelly Kim\nSolutions are not final and work in progress");
+    puts("Cracking Coding Interview\nSolutions by Kelly Kim\nSolutions may not be final and work in progress");
     int selection = 0;
-
     do{
         menu();
         cin >> selection;
@@ -36,6 +37,7 @@ void menu(void){
     puts("4: chapter 1-4");
     puts("5: chapter 1-5");
     puts("6: chapter 1-6");
+    puts("7: chapter 1-7");
     puts("0: Exit");
 }
 
@@ -124,5 +126,35 @@ void chapterOne(int selection){
             puts("ch1.6 - String Compression");
             cout << "Test 1-6: " << "abbcccdddd ->" << testOne.Compress("abbcccdddd") << endl;
             break;
+        
+        //1.7 matrix rotation
+        case 7:
+            puts("ch1.7 - matrix rotation nxn");
+            int array[ARRAY_SIZE][ARRAY_SIZE];
+            int fill = 0;
+            for(int i = 0; i < ARRAY_SIZE; i++){
+                for(int j = 0; j < ARRAY_SIZE; j++){
+                    array[i][j] = fill++;
+                }
+            }
+            puts("Before 90 degree rotation");
+            for(int i = 0; i < ARRAY_SIZE; i++){
+                for(int j = 0; j < ARRAY_SIZE; j++){
+                    cout << array[i][j] << ", ";
+                }
+                cout << endl;
+            }
+            testOne.Rotate(array, ARRAY_SIZE);
+            puts("Result: 90 degree rotation");
+            for(int i = 0; i < ARRAY_SIZE; i++){
+                for(int j = 0; j < ARRAY_SIZE; j++){
+                    cout << array[i][j] << ", ";
+                }
+                cout << endl;
+            }
+            
+            
+            break;
+            
     }
 }

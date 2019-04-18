@@ -235,3 +235,30 @@ std::string ArraysAndStrings::Compress(std::string s1){
         return s1;
     return result;
 }
+
+/*
+ 1.7 Rotate Matrix: Given an image represented by an NxN matrix, where each pixel in the image is 4
+ bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+ 
+ considering int is 4bytes, for demonstration i will use int in replacement of 4 bytes pixel.
+ for 90 degree rotation, I am assuming clockwise rotation.
+ 
+ To solve this problem in place, I am considering linear transformation however due to time restriction
+ for now will solve it using two different array.
+ */
+void ArraysAndStrings::Rotate (int arr[5][5], int size){
+    int temp [size][size];
+    for(int i = 0; i < size; i++){
+        for(int j = 0; j < size; j++){
+            //rotation
+            temp[i][j] = arr[size-1-j][i];
+        }
+    }
+    for(int i = 0; i < size; i++){
+        for(int j = 0; j < size; j++){
+            //replacing
+            arr[i][j] = temp[i][j];
+        }
+    }
+    
+}

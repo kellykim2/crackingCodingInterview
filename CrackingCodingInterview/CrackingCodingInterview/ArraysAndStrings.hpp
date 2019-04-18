@@ -25,6 +25,7 @@ public:
     bool palperm(std::string); //ch 1-4
     bool OneAway(std::string, std::string);//ch1-5
     std::string Compress(std::string);//ch1-6
+    void Rotate (int[5][5], int); //ch1-7
     
     
 };
