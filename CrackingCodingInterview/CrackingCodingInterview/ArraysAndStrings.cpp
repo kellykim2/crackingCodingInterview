@@ -204,4 +204,33 @@ bool ArraysAndStrings::OneAway(std::string s1, std::string s2){
         return false;
     return true;
 }
+/*
+ String Compression: Implement a method to perform basic string compression using the counts
+ of repeated characters. For example, the string aabcccccaaa would become a2blc5a3, If the
+ "compressed" string would not become smaller than the original string, your method should return
+ the original string. You can assume the string has only uppercase and lowercase letters (a - z).
+ 
+ approach
+ Count number of chars that are same with at index at i
+ then add number
+ 
+ 01234567890123456789
+ 
+ */
 
+std::string ArraysAndStrings::Compress(std::string s1){
+    std::string result = "";
+    for(int i = 0; i < s1.size(); i++){
+        int count = 1;
+        char temp = s1.at(i);
+        while(count+i < s1.size() && temp == s1.at(i+count)){
+            count++;
+        }
+        i += count;
+        result += temp;
+        //add a way to add integer to string for temp val.
+    }
+    if (s1.size() < result.size())
+        return s1;
+    return result;
+}
