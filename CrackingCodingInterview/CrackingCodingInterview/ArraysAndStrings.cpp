@@ -215,7 +215,7 @@ bool ArraysAndStrings::OneAway(std::string s1, std::string s2){
  then add number
  
  01234567890123456789
- 
+ abbcccdddd
  */
 
 std::string ArraysAndStrings::Compress(std::string s1){
@@ -223,12 +223,13 @@ std::string ArraysAndStrings::Compress(std::string s1){
     for(int i = 0; i < s1.size(); i++){
         int count = 1;
         char temp = s1.at(i);
+        //std::cout<< "DEBUG: char at(" << i << ") = " << temp << std::endl;
         while(count+i < s1.size() && temp == s1.at(i+count)){
             count++;
         }
-        i += count;
+        i += count-1;
         result += temp;
-        //add a way to add integer to string for temp val.
+        result += std::to_string(count);
     }
     if (s1.size() < result.size())
         return s1;

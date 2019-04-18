@@ -12,22 +12,34 @@
 using namespace std;
 
 void menu(void);
-void chapterOne(void);
+void chapterOne(int);
 
 int main(int argc, const char * argv[]) {
     
     puts("Cracking Coding Interview\nSolutions by Kelly Kim\nSolutions are not final and work in progress");
-    menu();
-    chapterOne();
+    int selection = 0;
+
+    do{
+        menu();
+        cin >> selection;
+        chapterOne(selection);
+    }while(selection != 0);
     
     return 0;
 }
 
 void menu(void){
     puts("menu");
+    puts("1: chapter 1-1");
+    puts("2: chapter 1-2");
+    puts("3: chapter 1-3");
+    puts("4: chapter 1-4");
+    puts("5: chapter 1-5");
+    puts("6: chapter 1-6");
+    puts("0: Exit");
 }
 
-void chapterOne(void){
+void chapterOne(int selection){
     //construct test
     ArraysAndStrings testOne;
     string unique = "Unique";
@@ -44,58 +56,73 @@ void chapterOne(void){
     string oneOff3 = "banan";
     string oneOff4 = "bacana";
     
-//    //1-1
-//    puts("ch1.1 - IsUnique");
-//    if(testOne.IsUnique(unique))
-//        puts("Test 1 unique passed");
-//    else
-//        puts("Test 1 unique not passed");
-//    if(testOne.IsUnique(notUnique))
-//        puts("Test 1 not unique case not passed");
-//    else
-//        puts("Test 1 not unique case passed");
-//    if(testOne.IsUnique(emptyString))
-//        puts("Test 1 empty string case passed");
-//    else
-//        puts("Test 1 empty string case not passed");
-//
-//    //1-2
-//    puts("ch1.2 - Is Permutation");
-//    if(testOne.IsPermutation(unique, unique))
-//        puts("Test 1-2 permutation test passed");
-//    else
-//        puts("Test 1-2 permutation test failed");
-//    if(!testOne.IsPermutation("", " "))
-//        puts("Test 1-2 permutation test passed");
-//    else
-//        puts("Test 1-2 permutation test failed");
-//    if(!testOne.IsPermutation(notUnique, unique))
-//        puts("Test 1-2 permutation test passed");
-//    else
-//        puts("Test 1-2 permutation test failed");
-//
-//    //1.3 URLify
-//    puts("ch1.3 - URLify");
-//    cout << "Test 1-3 :" << urltest1 << endl <<
-//    "Test 1-3 result : " << testOne.URLify(urltest1, (int)urltest1.length()) << endl;
-//    cout << "Test 1-3 :" << urltest2 << endl <<
-//    "Test 1-3 result : " << testOne.URLify(urltest2, (int)urltest2.length()) << endl;
-//    cout << "Test 1-3 :" << urltest3 << endl <<
-//    "Test 1-3 result : " << testOne.URLify(urltest3, (int)urltest3.length()) << endl;
-//
-//    //1.4 Palindrome Permutation
-//    puts("ch1.4 - Palindrome Permutation");
-//    cout << "Test 1-4 " << pal << endl <<
-//    "Test 1-4 result : " << (testOne.palperm(pal) ? "Success" : "Failed") << endl;
-//
-//    //1.5 One Away
-//    puts("ch1.5 - One Away");
-//    cout << "Test 1-5 : " << "banana vs bananana (Expected to fail)" << (testOne.OneAway(oneCorr, oneOff1) ? "pass" : "fail") << endl;
-//    cout << "Test 1-5 : " << "banana vs banan (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff2) ? "pass" : "fail") << endl;
-//    cout << "Test 1-5 : " << "banana vs bananaa (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff3) ? "pass" : "fail") << endl;
-//    cout << "Test 1-5 : " << "banana vs bacana (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff4) ? "pass" : "fail") << endl;
+    switch(selection){
+    //1-1
+        case 1:
+            puts("ch1.1 - IsUnique");
+            if(testOne.IsUnique(unique))
+                puts("Test 1 unique passed");
+            else
+                puts("Test 1 unique not passed");
+            if(testOne.IsUnique(notUnique))
+                puts("Test 1 not unique case not passed");
+            else
+                puts("Test 1 not unique case passed");
+            if(testOne.IsUnique(emptyString))
+                puts("Test 1 empty string case passed");
+            else
+                puts("Test 1 empty string case not passed");
+            break;
+            
+        //1-2
+        case 2:
+            puts("ch1.2 - Is Permutation");
+            if(testOne.IsPermutation(unique, unique))
+                puts("Test 1-2 permutation test passed");
+            else
+                puts("Test 1-2 permutation test failed");
+            if(!testOne.IsPermutation("", " "))
+                puts("Test 1-2 permutation test passed");
+            else
+                puts("Test 1-2 permutation test failed");
+            if(!testOne.IsPermutation(notUnique, unique))
+                puts("Test 1-2 permutation test passed");
+            else
+                puts("Test 1-2 permutation test failed");
+            break;
+            
+        //1.3 URLify
+        case 3:
+            puts("ch1.3 - URLify");
+            cout << "Test 1-3 :" << urltest1 << endl <<
+            "Test 1-3 result : " << testOne.URLify(urltest1, (int)urltest1.length()) << endl;
+            cout << "Test 1-3 :" << urltest2 << endl <<
+            "Test 1-3 result : " << testOne.URLify(urltest2, (int)urltest2.length()) << endl;
+            cout << "Test 1-3 :" << urltest3 << endl <<
+            "Test 1-3 result : " << testOne.URLify(urltest3, (int)urltest3.length()) << endl;
+            break;
 
-    //1.6 String Compression
-    puts("ch1.6 - String Compression");
-    cout << "Test 1-6: " << "Baaaaccccdddddddddddc ->" << testOne.Compress("Baaaaccccdddddddddddc") << endl;
+        //1.4 Palindrome Permutation
+        case 4:
+            puts("ch1.4 - Palindrome Permutation");
+            cout << "Test 1-4 " << pal << endl <<
+            "Test 1-4 result : " << (testOne.palperm(pal) ? "Success" : "Failed") << endl;
+            break;
+            
+
+        //1.5 One Away
+        case 5:
+            puts("ch1.5 - One Away");
+            cout << "Test 1-5 : " << "banana vs bananana (Expected to fail)" << (testOne.OneAway(oneCorr, oneOff1) ? "pass" : "fail") << endl;
+            cout << "Test 1-5 : " << "banana vs banan (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff2) ? "pass" : "fail") << endl;
+            cout << "Test 1-5 : " << "banana vs bananaa (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff3) ? "pass" : "fail") << endl;
+            cout << "Test 1-5 : " << "banana vs bacana (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff4) ? "pass" : "fail") << endl;
+            break;
+            
+        //1.6 String Compression
+        case 6:
+            puts("ch1.6 - String Compression");
+            cout << "Test 1-6: " << "abbcccdddd ->" << testOne.Compress("abbcccdddd") << endl;
+            break;
+    }
 }
