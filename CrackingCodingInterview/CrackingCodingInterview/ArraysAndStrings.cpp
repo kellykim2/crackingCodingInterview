@@ -163,8 +163,8 @@ bool ArraysAndStrings::palperm(std::string s){
 
 bool ArraysAndStrings::OneAway(std::string s1, std::string s2){
     //test 1 size
-    int size1 = s1.size();
-    int size2 = s2.size();
+    int size1 = (int)s1.size();
+    int size2 = (int)s2.size();
     int difference = size1 - size2;
     int flag = 0;
     //test example
@@ -261,4 +261,54 @@ void ArraysAndStrings::Rotate (int arr[5][5], int size){
         }
     }
     
+}
+
+/*
+ Zero Matrix: Write an algorithm such that if an element in an MxN matrix is 0, its entire row and
+ column are set to 0.
+ 
+ PRE : Given MxN matrix,
+ Post: replace the row and column of zero value index to 0
+ 
+ Approach : Build two array of booleans to give indexes of found 0 value to denote rows/columns to be zeroed out.
+ */
+
+void ArraysAndStrings::ZeroOut(int ** matrix, int row, int column){
+    //build two boolean arrays
+    bool rows[row];
+    bool columns[column];
+    //fill with initially all false
+    for(bool val : rows) {val = false;}
+    for(bool val : columns) {val = false;}
+    
+//    //debug
+//    for(int i = 0; i < row; i++){
+//        std::cout<< "ROW [" << i << "] :" << (rows[i] ? " X" : " O") << std::endl;
+//    }
+//    for(int i = 0; i < column; i++){
+//        std::cout<< "COL [" << i << "] :" << (columns[i] ? " X" : " O") << std::endl;
+//    }
+    //now process matrix and denote all rows and columns to be zeroed out
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j < column; j++){
+            if(matrix[i][j] == 0){
+                rows[i] = true;
+                columns[j] = true;
+            }
+        }
+    }
+    //debug
+//    for(int i = 0; i < row; i++){
+//        std::cout<< "ROW [" << i << "] :" << (rows[i] ? " X" : " O") << std::endl;
+//    }
+//    for(int i = 0; i < column; i++){
+//        std::cout<< "COL [" << i << "] :" << (columns[i] ? " X" : " O") << std::endl;
+//    }
+    //replace with zeroes
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j < column; j++){
+            if(rows[i] || columns[j])
+                matrix[i][j] = 0;
+        }
+    }
 }

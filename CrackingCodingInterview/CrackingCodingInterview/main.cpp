@@ -38,6 +38,7 @@ void menu(void){
     puts("5: chapter 1-5");
     puts("6: chapter 1-6");
     puts("7: chapter 1-7");
+    puts("8: chapter 1-8");
     puts("0: Exit");
 }
 
@@ -60,7 +61,7 @@ void chapterOne(int selection){
     
     switch(selection){
     //1-1
-        case 1:
+        case 1:{
             puts("ch1.1 - IsUnique");
             if(testOne.IsUnique(unique))
                 puts("Test 1 unique passed");
@@ -75,9 +76,9 @@ void chapterOne(int selection){
             else
                 puts("Test 1 empty string case not passed");
             break;
-            
+        }
         //1-2
-        case 2:
+        case 2:{
             puts("ch1.2 - Is Permutation");
             if(testOne.IsPermutation(unique, unique))
                 puts("Test 1-2 permutation test passed");
@@ -92,9 +93,9 @@ void chapterOne(int selection){
             else
                 puts("Test 1-2 permutation test failed");
             break;
-            
+        }
         //1.3 URLify
-        case 3:
+        case 3:{
             puts("ch1.3 - URLify");
             cout << "Test 1-3 :" << urltest1 << endl <<
             "Test 1-3 result : " << testOne.URLify(urltest1, (int)urltest1.length()) << endl;
@@ -103,32 +104,32 @@ void chapterOne(int selection){
             cout << "Test 1-3 :" << urltest3 << endl <<
             "Test 1-3 result : " << testOne.URLify(urltest3, (int)urltest3.length()) << endl;
             break;
-
+        }
         //1.4 Palindrome Permutation
-        case 4:
+        case 4:{
             puts("ch1.4 - Palindrome Permutation");
             cout << "Test 1-4 " << pal << endl <<
             "Test 1-4 result : " << (testOne.palperm(pal) ? "Success" : "Failed") << endl;
             break;
             
-
+        }
         //1.5 One Away
-        case 5:
+        case 5:{
             puts("ch1.5 - One Away");
             cout << "Test 1-5 : " << "banana vs bananana (Expected to fail)" << (testOne.OneAway(oneCorr, oneOff1) ? "pass" : "fail") << endl;
             cout << "Test 1-5 : " << "banana vs banan (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff2) ? "pass" : "fail") << endl;
             cout << "Test 1-5 : " << "banana vs bananaa (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff3) ? "pass" : "fail") << endl;
             cout << "Test 1-5 : " << "banana vs bacana (Expected to pass)" << (testOne.OneAway(oneCorr, oneOff4) ? "pass" : "fail") << endl;
             break;
-            
+        }
         //1.6 String Compression
-        case 6:
+        case 6:{
             puts("ch1.6 - String Compression");
             cout << "Test 1-6: " << "abbcccdddd ->" << testOne.Compress("abbcccdddd") << endl;
             break;
-        
+        }
         //1.7 matrix rotation
-        case 7:
+        case 7:{
             puts("ch1.7 - matrix rotation nxn");
             int array[ARRAY_SIZE][ARRAY_SIZE];
             int fill = 0;
@@ -140,7 +141,7 @@ void chapterOne(int selection){
             puts("Before 90 degree rotation");
             for(int i = 0; i < ARRAY_SIZE; i++){
                 for(int j = 0; j < ARRAY_SIZE; j++){
-                    cout << array[i][j] << ", ";
+                    cout << array[i][j] << ",\t";
                 }
                 cout << endl;
             }
@@ -148,13 +149,46 @@ void chapterOne(int selection){
             puts("Result: 90 degree rotation");
             for(int i = 0; i < ARRAY_SIZE; i++){
                 for(int j = 0; j < ARRAY_SIZE; j++){
-                    cout << array[i][j] << ", ";
+                    cout << array[i][j] << ",\t";
+                }
+                cout << endl;
+            }
+            break;
+        }
+        case 8:{
+            // MxN ex of 8 x 5
+            int rows = 8;
+            int cols = 5;
+            int **matrix;
+            int val = 0;
+            //initializing with dynamic 2d array to test.
+            matrix = new int*[rows];
+            for(int i = 0; i < rows; i++){ matrix[i] = new int[cols]; }
+            for(int i = 0; i < rows; i++){
+                for(int j = 0; j < cols; j++){
+                    matrix[i][j] = val++;
+                }
+            }
+            //pre
+            puts("MxN matrix before :");
+            for(int i = 0; i < rows; i++){
+                for(int j = 0; j < cols; j++){
+                    cout << matrix[i][j] << ",\t";
+                }
+                cout << endl;
+            }
+            testOne.ZeroOut(matrix, rows, cols);
+            //post
+            puts("MxN matrix After :");
+            for(int i = 0; i < rows; i++){
+                for(int j = 0; j < cols; j++){
+                    cout << matrix[i][j] << ",\t";
                 }
                 cout << endl;
             }
             
-            
+            delete matrix;
             break;
-            
+        }
     }
 }

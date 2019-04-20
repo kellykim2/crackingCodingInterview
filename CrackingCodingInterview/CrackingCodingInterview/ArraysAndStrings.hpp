@@ -26,7 +26,7 @@ public:
     bool OneAway(std::string, std::string);//ch1-5
     std::string Compress(std::string);//ch1-6
     void Rotate (int[5][5], int); //ch1-7
-    
+    void ZeroOut(int**,int, int); //ch1-8
     
 };
 
