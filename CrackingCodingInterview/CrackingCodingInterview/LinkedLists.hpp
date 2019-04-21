@@ -38,7 +38,7 @@ public:
     int getSize();
     void RemoveDups();//2-1
     Node * KthToLast(int); //recursion outer method
-    
+    void DeleteMiddle(Node *);
     
 };
 #endif /* LinkedLists_hpp */

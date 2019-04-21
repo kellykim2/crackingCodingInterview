@@ -263,6 +263,15 @@ void chapterTwo(void){
                     cout << "8th element is " << (myList2.KthToLast(8)->value) << endl;
                     break;
                 }
+                case 3:{
+                    LinkedLists myList3;
+                    myList3.TempFillTen();
+                    puts("Ch2.3 List contains");
+                    myList3.Print();
+                    myList3.DeleteMiddle(myList3.KthToLast(5));
+                    puts("Ch2.3 List after removing 5th node");
+                    myList3.Print();
+                }
             }
         }
     }while(selection != 0 );

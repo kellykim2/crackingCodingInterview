@@ -105,7 +105,28 @@ Node * LinkedLists::KthToLast(int k, Node * curr){
             curr = curr->next;
             count--;
         }
-        
     }
     return curr;
 }
+
+/*2.3
+ Delete Middle Node: Implement an algorithm to delete a node in the middle (any node but
+ the first and last node, not necessarily the exact middle) of a singly linked list, given only access to
+ that node.
+ 
+ Hint given->Picture the list 1->5->9->12, Removing 9 would make it look like 1- >5- >12.You only
+ have access to the 9 node. Can you make it iook like the correct answer?
+ 
+ Approach #1 : Since we are given only access to the targeted node
+ Step1 : Copy contents of next link to itself.
+ step2: Copy next link's next to itself.
+ step3: delete the tailing node.
+ */
+
+void LinkedLists::DeleteMiddle(Node * target){
+    //step1
+    target->value = target->next->value;
+    //step2 & step3 are done by remove function that receives parent node of object due deletion.
+    remove(target);
+}
+
