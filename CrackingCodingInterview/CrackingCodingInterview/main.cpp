@@ -244,15 +244,23 @@ void chapterTwo(void){
         menuTwo();
         cin >> selection;
         if (selection != 0) {
-            LinkedLists myList;
             switch(selection){
                 case 1:{
+                    LinkedLists myList;
                     myList.TempFillTen();
                     puts("Current List:");
                     myList.Print();
                     myList.RemoveDups();
                     puts("After removing dups:");
                     myList.Print();
+                    break;
+                }
+                case 2:{
+                    LinkedLists myList2;
+                    myList2.TempFillTen();
+                    puts("Ch.2.2 List:");
+                    myList2.Print();
+                    cout << "8th element is " << (myList2.KthToLast(8)->value) << endl;
                     break;
                 }
             }

@@ -25,7 +25,7 @@ void LinkedLists::TempFillTen(){
         curr = curr->next;
     }
     for(int i = 0; i < 10; i++){
-        curr->next = new Node(rand()%10);
+        curr->next = new Node(rand()%100);
         size++;
         curr = curr->next;
     }
@@ -35,9 +35,10 @@ void LinkedLists::Print(){
     puts("List contains:");
     Node * curr = head;
     while (curr != nullptr){
-        cout << curr->value << " " << endl;
+        cout << curr->value << " - ";
         curr = curr->next;
     }
+    cout << "NULL" << endl;
 }
 
 /*
@@ -86,4 +87,25 @@ void LinkedLists::remove(Node * parent){
             parent->next = nullptr;
         }
     }
+}
+//ch2-1
+//Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list.
+
+Node * LinkedLists::KthToLast(int k){
+    return KthToLast(k, head);
+}
+
+Node * LinkedLists::KthToLast(int k, Node * curr){
+    if(k > 0 && curr != nullptr){
+        //since singly linked list has known size, size-k should give us the correct number of times
+        //of iteration to kth element from last
+        int count = size - k;
+        
+        while(count > 0 && curr != nullptr){
+            curr = curr->next;
+            count--;
+        }
+        
+    }
+    return curr;
 }

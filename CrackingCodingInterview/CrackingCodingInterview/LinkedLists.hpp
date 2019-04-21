@@ -29,6 +29,7 @@ private:
     int size;
     void remove(Node*); //parameter pointer to parent of subject due removal.
     void setSize(int);
+    Node * KthToLast(int, Node*); //recursion inner method
 public:
     LinkedLists();
     ~LinkedLists();
@@ -36,6 +37,7 @@ public:
     void TempFillTen();
     int getSize();
     void RemoveDups();//2-1
+    Node * KthToLast(int); //recursion outer method
     
     
 };
