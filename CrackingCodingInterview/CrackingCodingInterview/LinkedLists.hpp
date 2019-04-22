@@ -13,6 +13,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 struct Node{    //singly linked list structure
     int value;
@@ -30,6 +31,8 @@ private:
     void remove(Node*); //parameter pointer to parent of subject due removal.
     void setSize(int);
     Node * KthToLast(int, Node*); //recursion inner method
+    void push(int);
+    int pop();
 public:
     LinkedLists();
     ~LinkedLists();
@@ -38,7 +41,11 @@ public:
     int getSize();
     void RemoveDups();//2-1
     Node * KthToLast(int); //recursion outer method
-    void DeleteMiddle(Node *);
+    void DeleteMiddle(Node *); //2-3
+    //2-4
+    int SumList(void); //2-5
+    void IntToList(int);//2-5 helper creates
+    
     
 };
 #endif /* LinkedLists_hpp */

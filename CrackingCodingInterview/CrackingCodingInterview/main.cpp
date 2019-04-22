@@ -271,6 +271,27 @@ void chapterTwo(void){
                     myList3.DeleteMiddle(myList3.KthToLast(5));
                     puts("Ch2.3 List after removing 5th node");
                     myList3.Print();
+                    break;
+                }
+                case 4:{
+                    LinkedLists myList4;
+                    myList4.IntToList(123);
+                    puts("ch2.4 List1 of 123 now contains");
+                    myList4.Print();
+                    LinkedLists myList5;
+                    myList5.IntToList(345);
+                    puts("ch2.4 List2 345 now contains");
+                    myList5.Print();
+                    int sum = myList4.SumList() + myList5.SumList();
+                    LinkedLists myList6;
+                    myList6.IntToList(sum);
+                    puts("ch2.4 Sum of two lists contains:");
+                    myList6.Print();
+                    
+                    break;
+                }
+                case 5:{
+                    break;
                 }
             }
         }

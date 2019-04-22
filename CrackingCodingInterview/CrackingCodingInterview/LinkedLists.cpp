@@ -10,25 +10,30 @@
 using namespace std;
 
 LinkedLists::LinkedLists(){
-    head = new Node(1);
-    size = 1;
+    head = nullptr;
+    size = 0;
 }
 
 LinkedLists::~LinkedLists(){
     delete head;
 }
 
+//initial filler
 void LinkedLists::TempFillTen(){
+    head = new Node(rand()%100);
+    size++;
     Node * curr = head;
     srand(time(NULL));
-    while(curr->next != nullptr){
-        curr = curr->next;
-    }
-    for(int i = 0; i < 10; i++){
+    //assuming this method only fills from head
+//    while(curr->next != nullptr){
+//        curr = curr->next;
+//    }
+    
+    do{
         curr->next = new Node(rand()%100);
         size++;
         curr = curr->next;
-    }
+    }while(size < 10);
 }
 
 void LinkedLists::Print(){
@@ -128,5 +133,69 @@ void LinkedLists::DeleteMiddle(Node * target){
     target->value = target->next->value;
     //step2 & step3 are done by remove function that receives parent node of object due deletion.
     remove(target);
+}
+
+/*
+ *
+ Sum Lists: You have two numbers represented by a linked list,
+ where each node contains a single digit.
+ The digits are stored in reverse order,
+ such that the Vs digit is at the head of the list.
+ Write a function that adds the two numbers and returns the sum as a linked list.
+ 
+ For this problem, I have quickly implemented pop and push for the list,
+ and SumList will have summing of a list of digits in reverse order.
+ 
+ Thus from driver program,
+ User will have access to SumList which will sum the list that contains
+ reverse order digits
+ User also has access to IntToList which will convert an integer value
+ to reverser order digit representation in a List.
+ 
+ */
+int LinkedLists::SumList(void){
+    int sum = 0;
+    for(int i = 0; i < size; i++){
+        cout << "Debug pow (10, " << i << ") = " << pow(10, i) <<endl;
+        
+        sum += pow(10, i) * pop(); //per digit
+    }
+    return sum;
+}
+
+//to an empty list with given integer, fills list with single digit reversely
+//i.e. given 123, (one hundred and twenty three)
+// mod 10, assigns 3 to digit, pushes 3 / and i is 12
+// mod 10 assigns 2 to digit pushes 2 / and i is
+void LinkedLists::IntToList(int i){
+    while (i > 0){
+        int digit = i % 10;
+        push(digit);
+        i /= 10;
+    }
+}
+
+//stack style insert and remove
+void LinkedLists::push(int val){
+    if(head == nullptr){
+        head = new Node(val);
+        
+    }else{
+        Node * curr = head;
+        while(curr->next != nullptr){
+            curr = curr->next;
+        }
+        curr->next = new Node(val);
+        
+    }
+    size++;
+}
+
+int LinkedLists::pop(){
+    Node * temp = head;
+    head = head->next;
+    int value = temp->value;
+    delete temp;
+    return value;
 }
 
