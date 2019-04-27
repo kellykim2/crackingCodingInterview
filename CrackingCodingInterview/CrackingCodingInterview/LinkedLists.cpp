@@ -199,3 +199,66 @@ int LinkedLists::pop(){
     return value;
 }
 
+/*
+ *2.6 Palindrome: Implement a function to check if a linked list is a palindrome.
+ *Since the linkedlist that I have built to solve questions for chapter 2 are based on
+ *integer data type, I will add char value to the node structure as add on to handle this problem
+ *with characters.
+ * approach
+ * determine odd/even number size
+ * odd. will skip center letter from accountability
+ * construct a half list into a stack, while popping the half
+ * compare to the original list starting from center.
+ */
+bool LinkedLists::IsPalindrome(){
+    LinkedLists half;
+    bool result = true;
+    Node * curr = head;
+    int halfIndex = size / 2;
+    for(int i = 0; i < halfIndex; i++){
+        half.push(curr->letter);
+        curr = curr->next;
+    }
+    if(size % 2 != 0){ //odd case so skip one letter
+        curr = curr->next;
+    }
+    while(curr){
+        if(curr->letter != half.cPop()){
+            result = false;
+        }
+        curr = curr->next;
+    }
+    return result;
+}
+
+//2.6 helper to convert string into a char list
+void LinkedLists::InputString(string s){
+    for(char c : s){
+        c = tolower(c);
+        push(c);
+    }
+}
+
+//stack style insert and remove [overloaded to handle char]
+void LinkedLists::push(char val){
+    if(head == nullptr){
+        head = new Node(val);
+        
+    }else{
+        Node * curr = head;
+        while(curr->next != nullptr){
+            curr = curr->next;
+        }
+        curr->next = new Node(val);
+        
+    }
+    size++;
+}
+
+char LinkedLists::cPop(){
+    Node * temp = head;
+    head = head->next;
+    char value = temp->letter;
+    delete temp;
+    return value;
+}

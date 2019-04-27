@@ -14,13 +14,21 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <string>
 
 struct Node{    //singly linked list structure
     int value;
+    char letter;
     Node * next;
     Node(int val){ //constructor with value;
         value = val;
         next = nullptr;
+        letter = '\0';
+    }
+    Node(char c){
+        value = 0;
+        next = nullptr;
+        letter = c;
     }
     Node(): value(-1), next(nullptr) {}//defulat constructor
 };
@@ -33,6 +41,8 @@ private:
     Node * KthToLast(int, Node*); //recursion inner method
     void push(int);
     int pop();
+    void push(char);
+    char cPop();
 public:
     LinkedLists();
     ~LinkedLists();
@@ -45,6 +55,9 @@ public:
     //2-4
     int SumList(void); //2-5
     void IntToList(int);//2-5 helper creates
+    bool IsPalindrome(void);//2-6
+    void InputString(std::string);
+    
     
     
 };

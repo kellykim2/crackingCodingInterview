@@ -290,7 +290,18 @@ void chapterTwo(void){
                     
                     break;
                 }
-                case 5:{
+                case 5:{ //2.6
+                    LinkedLists myString;
+                    myString.InputString("Hello");
+                    puts("ch2.6 testing palindrom");
+                    if(!myString.IsPalindrome()){
+                        puts("test \"hello\" success");
+                    }else{puts("test \"hello\" failed");}
+                    LinkedLists myString1;
+                    myString1.InputString("ana");
+                    if(myString1.IsPalindrome()){
+                        puts("test \"ana\" success");
+                    }else{puts("test \"ana\" failed");}
                     break;
                 }
             }
