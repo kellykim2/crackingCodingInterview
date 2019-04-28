@@ -9,6 +9,8 @@
 #include <cstdio>
 #include "ArraysAndStrings.hpp" //Ch1
 #include "LinkedLists.hpp"      //Ch2
+#include "MaStack.hpp"          //Ch3
+#include "MaQueue.hpp"          //Ch3
 #define ARRAY_SIZE 5 //1-7
 
 
@@ -17,8 +19,9 @@ using namespace std;
 void mainMenu(void);
 void menuOne(void);
 void menuTwo(void);
-void chapterOne();
+void chapterOne(void);
 void chapterTwo(void);
+void chapterThree(void);
 
 int main(int argc, const char * argv[]) {
     
@@ -34,6 +37,10 @@ int main(int argc, const char * argv[]) {
             }
             case 2:{
                 chapterTwo();
+                break;
+            }
+            case 3:{
+                chapterThree();
                 break;
             }
         }
@@ -307,4 +314,19 @@ void chapterTwo(void){
             }
         }
     }while(selection != 0 );
+}
+
+void chapterThree(){
+    MaStack * s = new MaStack(10);
+    //testing stack ability
+    for(int i = 0; i < 10; i++){
+        s->push(i);
+    }
+    puts("after pushes" );
+    s->print();
+    cout << "Testing stack output" << endl;
+    for(int i = 0; i < 10; i++){
+        cout << "poppped : " << s->pop() << endl;
+    }
+
 }
