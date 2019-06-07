@@ -262,3 +262,87 @@ char LinkedLists::cPop(){
     delete temp;
     return value;
 }
+
+/*
+ * 2.7 Intersection Given two(singly) linkedlists, determine if the two lists intersect.
+        Return the intersecting node. Note that the intersection is defined based on reference, not value.
+        that is, if the kth node of the first linked list is the exact same node (by reference) as the jth node of the
+        second linked list, then they are intersecting.
+ 
+        will return nullptr for no intersection
+        O(n*m) (n = |list1| m = |list2|)
+ */
+/*
+Node* LinkedLists::Intersect(LinkedLists *list){
+    Node * result = nullptr;
+    Node * left = this->head;
+    Node * right = list->head;
+    while(left != nullptr){
+        while(right != nullptr){
+            if(left == right){
+                result = left;
+            }
+            right = right->next;
+        }
+        left = left->next;
+        right = list->head;
+    }
+    
+    return result;
+}
+*/
+
+//solution 2
+/*
+ 
+ check tail for intersection
+ if intersecting same tail
+ thus find shorter size linkedlist and skip differences of the length in longer list
+ */
+
+Node* LinkedLists::Intersect(LinkedLists *list){
+    //null list
+    if (this->head == nullptr || list->head == nullptr)
+        return nullptr;
+    
+    //find tail
+    Node * tail1 = this->getTail();
+    Node * tail2 = list->getTail();
+    
+    //no intersection
+    if(tail1 != tail2)
+        return nullptr;
+    
+    Node * big;
+    Node * sm;
+    int diff = abs(this->size - list->size);
+    if(this->size > list->size){
+        big = this->head;
+        sm = list->head;
+    }
+    else{
+        big = list->head;
+        sm = this->head;
+    }
+    for (int i = 0; i < diff; i++){
+        big = big->next;
+    }
+    
+    while(big != sm){
+        big = big->next;
+        sm = sm->next;
+    }
+    
+    return big;
+}
+
+Node* LinkedLists::getTail(){
+    Node * tail = this->head;
+    if(tail == nullptr)
+        return tail;
+    while(tail->next != nullptr){
+        tail = tail->next;
+    }
+    return tail;
+}
+

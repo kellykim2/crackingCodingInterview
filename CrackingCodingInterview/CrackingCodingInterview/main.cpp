@@ -2,6 +2,9 @@
 //  main.cpp
 //  CrackingCodingInterview driver
 //
+//  Displays Menu options for each Chapters
+//  and for each question number to test the solution
+//
 //  Created by Kelly Kim on 4/15/19.
 //  Copyright © 2019 Kelly Kim. All rights reserved.
 //
