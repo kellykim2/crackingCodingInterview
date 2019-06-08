@@ -10,10 +10,12 @@
 //
 
 #include <cstdio>
+#include <list>
 #include "ArraysAndStrings.hpp" //Ch1
 #include "LinkedLists.hpp"      //Ch2
 #include "MaStack.hpp"          //Ch3
 #include "MaQueue.hpp"          //Ch3
+#include "SetOfStack.hpp"       //Ch3-7
 #define ARRAY_SIZE 5 //1-7
 
 
@@ -331,5 +333,17 @@ void chapterThree(){
     for(int i = 0; i < 10; i++){
         cout << "poppped : " << s->pop() << endl;
     }
+    
+    SetOfStack * ss = new SetOfStack();
+    
+    for(int i = 0; i < 25; i++){
+        ss->push(i);
+    }
+    
+    cout << "Testing set of stack output" << endl;
+    for(int i = 0; i < 25; i++){
+        cout << "poppped : " << ss->pop() << endl;
+    }
+
 
 }

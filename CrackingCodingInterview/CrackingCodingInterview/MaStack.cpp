@@ -45,6 +45,10 @@ bool MaStack::isEmpty(){
     return (top == 0);
 }
 
+bool MaStack::isFull(){
+    return (top == size);
+}
+
 void MaStack::print(){
     std::cout << "Stack = {";
     for(int i = 0; i < top; i++){
@@ -53,15 +57,25 @@ void MaStack::print(){
     std::cout << "}";
 }
 
+void MaStack::fillTen(){
+    srand(time(NULL));
+    for(int i = 0 ; i < 10; i++)
+        push(rand()%100);
+}
+
 /* 3.1
  Q: Describe how you could use a single array to implement three stacks.
- A: in a single array we can use modulus and division to browse through stack
- stack operation push would be done through accessing to [n], [n+1], or [n+2]
- stack operation pop can be done through accessing to [n], [n+1], or [n+2]
- thus index would run [stack 1],[stack 2],[stack 3], repeat.
- Given an index, we can identify which stack the index belongs to
- if each stack contains significantly different size, this indexing would cause
- inefficient space allocation.
+ 
+ A: In a array length N,
+ I can allocate each stack N/3 N/3 N/3
+ Stack 1 will run indices 0~ N/3 -1
+ Stack 2 will run through N/3 ~ 2N/3 -1
+ Stack 3 will run through 2N/3 ~ N - 1
+ each stack will have to have constant range value to keep an index from reaching over,
+ when pushes/pops rotate around the indices
+ 
+ 
+ 
  */
 
 /* 3.2
