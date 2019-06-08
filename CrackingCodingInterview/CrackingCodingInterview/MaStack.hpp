@@ -20,13 +20,16 @@ private:
     int size;
     
 public:
+    
     MaStack(int);
     ~MaStack();
     void push(int);
     int pop();
     int peek();
     bool isEmpty();
+    bool isFull();
     void print();
+    void fillTen();
     
 };
 #endif /* MaStack_hpp */
