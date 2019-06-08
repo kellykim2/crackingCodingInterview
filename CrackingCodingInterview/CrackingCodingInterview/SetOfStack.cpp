@@ -18,7 +18,10 @@ SetOfStack::~SetOfStack(){
 }
 
 void SetOfStack::push(int value){
+    //debug
+    std::cout << "\nDEBUG: Pushing into set of stack - value = " << value <<std::endl;
     MaStack * curr = set.back();
+    curr->print();
     if(curr->isFull()){
         set.push_back( new MaStack(10));
         curr = set.back();
@@ -33,8 +36,9 @@ int SetOfStack::pop(){
         MaStack * curr = set.back();
         while (curr->isEmpty()){
             set.pop_back();
+            curr = set.back();
         }
-        curr = set.back();
+        
         return curr->pop();
     }
 }

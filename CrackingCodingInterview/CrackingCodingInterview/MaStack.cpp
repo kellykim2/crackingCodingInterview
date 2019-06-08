@@ -50,7 +50,7 @@ bool MaStack::isFull(){
 }
 
 void MaStack::print(){
-    std::cout << "Stack = {";
+    std::cout << "Current Stack = {\n";
     for(int i = 0; i < top; i++){
         std::cout << "index " << i << " : " << stackArray[i] << std::endl;
     }
