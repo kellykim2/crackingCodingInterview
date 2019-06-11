@@ -71,6 +71,12 @@ void MaStack::fillTen(){
     }
 }
 
+void MaStack::fillTen(){
+    srand(time(NULL));
+    for(int i = 0 ; i < 10; i++)
+        push(rand()%100);
+}
+
 /* 3.1
  Q: Describe how you could use a single array to implement three stacks.
  
