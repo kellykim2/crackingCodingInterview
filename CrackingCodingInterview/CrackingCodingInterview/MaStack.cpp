@@ -19,6 +19,7 @@ MaStack::MaStack(int size){
 }
 MaStack::~MaStack(){
     delete[] stackArray;
+    
 }
 
 void MaStack::push(int value){
@@ -29,13 +30,16 @@ void MaStack::push(int value){
         
     }
 }
+int MaStack::peek(){
+    return stackArray[top];
+}
 
 int MaStack::pop(){
     int result = __INT_MAX__; //error value
     if(isEmpty()){
         puts("ERR: Stack Under Flow");
     }else{
-        result = stackArray[--top];
+        result = stackArray[top--];
         
     }
     return result;
@@ -54,13 +58,17 @@ void MaStack::print(){
     for(int i = 0; i < top; i++){
         std::cout << "index " << i << " : " << stackArray[i] << std::endl;
     }
-    std::cout << "}";
+    std::cout << "}\n";
 }
 
 void MaStack::fillTen(){
     srand(time(NULL));
-    for(int i = 0 ; i < 10; i++)
-        push(rand()%100);
+    for(int i = 0 ; i < 10; i++){
+        int temp =  rand()%100;
+        std::cout << "fill ten " << i << " : " << temp << std::endl;
+        push(temp);
+        
+    }
 }
 
 /* 3.1
@@ -92,11 +100,35 @@ void MaStack::fillTen(){
  
  */
 
-/* 3.3
- Stack of Plates
- Implement a data structure SetOFStacks that mimics real life stacks of plates.
- SetOfStacks should be composed of several stacks and should create a new stack once the previous ones exceed
- its capacity. SetOfStacks.push() and SetOfStacks.pop() should behave identically to a single stac.
+/* 3.4
+ Stack sorting with a temporary stack
+ no other data structure allowed
  
- Additionally implement a function popAt(int index) which performs a pop operation on a specific sub-stack
+ While input stack is NOT empty do this:
+ Pop an element from input stack call it temp
+ while temporary stack is NOT empty and top of temporary stack is greater than temp,
+ pop from temporary stack and push it to the input stack
+ push temp in temporary stack
+ 
+ 
  */
+
+void MaStack::sort(){
+    MaStack *temp = new MaStack(this->size);
+    
+    
+    // While input stack is NOT empty do this:
+    while(!this->isEmpty()){
+        //puts("Original ");
+        this->print();
+        puts("\ntemp\n");
+        //
+        int val = this->pop();
+
+        while(!temp->isEmpty() && temp->peek() > val){
+            this->push(temp->pop());
+        }
+        temp->push(val);
+    }
+}
+

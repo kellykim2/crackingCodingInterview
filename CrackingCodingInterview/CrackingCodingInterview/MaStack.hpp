@@ -30,6 +30,7 @@ public:
     bool isFull();
     void print();
     void fillTen();
+    void sort();
     
 };
 #endif /* MaStack_hpp */

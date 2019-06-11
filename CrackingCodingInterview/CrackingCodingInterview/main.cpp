@@ -320,30 +320,59 @@ void chapterTwo(void){
         }
     }while(selection != 0 );
 }
-
+void menuThree(){
+    puts("1: chapter 3-1");
+    //puts("2: chapter 3-2");
+    puts("3: chapter 3-3");
+    puts("4: chapter 3-4");
+    //puts("5: chapter 3-5");
+    //puts("6: chapter 3-6");
+    //puts("7: chapter 3-7");
+    //puts("8: chapter 3-8");
+    puts("0: Return to Main Menu");
+}
 void chapterThree(){
-    MaStack * s = new MaStack(10);
-    //testing stack ability
-    for(int i = 0; i < 10; i++){
-        s->push(i);
-    }
-    puts("after pushes" );
-    s->print();
-    cout << "Testing stack output" << endl;
-    for(int i = 0; i < 10; i++){
-        cout << "poppped : " << s->pop() << endl;
-    }
-    
-    SetOfStack * ss = new SetOfStack();
-    
-    for(int i = 0; i < 25; i++){
-        ss->push(i);
-    }
-    
-    cout << "Testing set of stack output" << endl;
-    for(int i = 0; i < 25; i++){
-        cout << "poppped : " << ss->pop() << endl;
-    }
-
+    int selection = 0;
+    do{
+        menuThree();
+        cin >> selection;
+        switch(selection){
+            case 1:{
+                MaStack * s = new MaStack(10);
+                //testing stack ability
+                for(int i = 0; i < 10; i++){
+                    s->push(i);
+                }
+                puts("after pushes" );
+                s->print();
+                cout << "Testing stack output" << endl;
+                for(int i = 0; i < 10; i++){
+                    cout << "poppped : " << s->pop() << endl;
+                }
+                break;
+            }
+            case 3:{
+                SetOfStack * ss = new SetOfStack();
+                
+                for(int i = 0; i < 25; i++){
+                    ss->push(i);
+                }
+                cout << "Testing set of stack output" << endl;
+                for(int i = 0; i < 25; i++){
+                    cout << "poppped : " << ss->pop() << endl;
+                }
+                break;
+            }
+            case 4:{
+                MaStack * s = new MaStack(10);
+                s->fillTen();
+                s->print();
+                s->sort();
+                puts("After sorting \n");
+                s->print();
+                break;
+            }
+        }
+    }while(selection != 0);
 
 }
